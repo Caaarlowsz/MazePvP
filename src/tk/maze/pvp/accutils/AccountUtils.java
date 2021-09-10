@@ -1,56 +1,56 @@
 package tk.maze.pvp.accutils;
 
-import tk.maze.pvp.conf.cfGrupo;
 import org.bukkit.OfflinePlayer;
 
-public class AccountUtils
-{
-    public static String getGrupo(final OfflinePlayer p) {
-        if (cfGrupo.ChecarGrupo(p, "Membro")) {
-            return "§7§lMEMBRO";
-        }
-        if (cfGrupo.ChecarGrupo(p, "light")) {
-            return "§a§lVIP";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Mvp")) {
-            return "§9§lMVP";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Pro")) {
-            return "§6§lPRO";
-        }
-        if (cfGrupo.ChecarGrupo(p, "S-Pro")) {
-            return "§e§lSEMIYT";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Youtuber")) {
-            return "§b§lYOUTUBER";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Youtuber+")) {
-            return "§3§lYOUTUBER+";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Helper")) {
-            return "§e§lHELPER";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Builder")) {
-            return "§2§lBUILDER";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Trial")) {
-            return "§5§lTRIAL";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Mod")) {
-            return "§5§lMOD";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Mod+")) {
-            return "§5§lMODPLUS";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Gerente")) {
-            return "§c§lGERENTE";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Admin")) {
-            return "§c§lADMIN";
-        }
-        if (cfGrupo.ChecarGrupo(p, "Dono")) {
-            return "§4§lDONO";
-        }
-        return "§4§lDONO";
-    }
+import tk.maze.pvp.conf.cfGrupo;
+
+public class AccountUtils {
+	public static String getGrupo(final OfflinePlayer p) {
+		if (cfGrupo.ChecarGrupo(p, "Membro")) {
+			return "ï¿½7ï¿½lMEMBRO";
+		}
+		if (cfGrupo.ChecarGrupo(p, "light")) {
+			return "ï¿½aï¿½lVIP";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Mvp")) {
+			return "ï¿½9ï¿½lMVP";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Pro")) {
+			return "ï¿½6ï¿½lPRO";
+		}
+		if (cfGrupo.ChecarGrupo(p, "S-Pro")) {
+			return "ï¿½eï¿½lSEMIYT";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Youtuber")) {
+			return "ï¿½bï¿½lYOUTUBER";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Youtuber+")) {
+			return "ï¿½3ï¿½lYOUTUBER+";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Helper")) {
+			return "ï¿½eï¿½lHELPER";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Builder")) {
+			return "ï¿½2ï¿½lBUILDER";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Trial")) {
+			return "ï¿½5ï¿½lTRIAL";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Mod")) {
+			return "ï¿½5ï¿½lMOD";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Mod+")) {
+			return "ï¿½5ï¿½lMODPLUS";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Gerente")) {
+			return "ï¿½cï¿½lGERENTE";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Admin")) {
+			return "ï¿½cï¿½lADMIN";
+		}
+		if (cfGrupo.ChecarGrupo(p, "Dono")) {
+			return "ï¿½4ï¿½lDONO";
+		}
+		return "ï¿½4ï¿½lDONO";
+	}
 }

@@ -2,9 +2,8 @@ package tk.maze.pvp.packets;
 
 import org.bukkit.entity.Player;
 
-public class SentPacket extends Packet
-{
-    public SentPacket(final Object packet, final Cancellable cancel, final Player player) {
-        super(packet, cancel, player);
-    }
+public class SentPacket extends Packet {
+	public SentPacket(final Object packet, final Cancellable cancel, final Player player) {
+		super(packet, cancel, player);
+	}
 }
