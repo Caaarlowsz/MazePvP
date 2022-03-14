@@ -55,13 +55,13 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.API;
 import tk.maze.pvp.API.ArraysAPI;
 import tk.maze.pvp.API.KitAPI;
 import tk.maze.pvp.API.WarpsAPI;
 import tk.maze.pvp.conf.cfGrupo;
-import tk.maze.pvp.invencivel.Prote\u00e7\u00e3o;
+\u00e7\u00e3o;
 import tk.maze.pvp.scoreboard.sScoreAPI;
 
 public class eUtills implements Listener {
@@ -73,7 +73,7 @@ public class eUtills implements Listener {
 
 	public static void addCooldown(final Player p, final int Tempo) {
 		eUtills.CooldownChat.put(p.getName(), System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(Tempo));
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				eUtills.CooldownChat.remove(p.getName());
@@ -361,13 +361,13 @@ public class eUtills implements Listener {
 			WarpsAPI.Ir(p, "Spawn");
 			API.setWarp(p, "Spawn");
 			p.sendMessage("�b�lMORREU: �7Voc\u00ea morreu para o void !");
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.spigot().respawn();
 				}
 			}, 1L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					API.sendItems(p);
@@ -501,7 +501,7 @@ public class eUtills implements Listener {
 
 	@EventHandler
 	public void dropar(final ItemSpawnEvent e) {
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				e.getEntity().remove();
@@ -548,7 +548,7 @@ public class eUtills implements Listener {
 			if (API.getWarp(hitado) == "Arena") {
 				API.inCombat.add(bateu);
 				API.inCombat.add(hitado);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						API.inCombat.remove(bateu);

@@ -13,7 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.CooldownAPI;
 import tk.maze.pvp.API.KitAPI;
 
@@ -30,13 +30,13 @@ public class FireLauncher implements Listener {
 		if (p.getItemInHand().getType() == Material.BLAZE_POWDER && KitAPI.getKit(p) == "FireLauncher"
 				&& CooldownAPI.Cooldown.containsKey(p.getName())) {
 			e.setCancelled(true);
-			p.sendMessage("§fO seu §3§lCOOLDOWN §facaba em: §c§l" + CooldownAPI.Cooldown(p) + "s");
+			p.sendMessage("ï¿½fO seu ï¿½3ï¿½lCOOLDOWN ï¿½facaba em: ï¿½cï¿½l" + CooldownAPI.Cooldown(p) + "s");
 		} else if (p.getItemInHand().getType() == Material.BLAZE_POWDER && KitAPI.getKit(p) == "FireLauncher"
 				&& !CooldownAPI.Cooldown.containsKey(p.getName())) {
-			p.sendMessage("§aVoc\u00ea ativou a sua habilidade!");
+			p.sendMessage("ï¿½aVoc\u00ea ativou a sua habilidade!");
 			CooldownAPI.addCooldown(p, 35);
 			FireLauncher.inFire.add(p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (FireLauncher.inFire.contains(p)) {
@@ -54,7 +54,7 @@ public class FireLauncher implements Listener {
 						final Player t = (Player) s;
 						t.getPlayer().getWorld().playEffect(t.getPlayer().getLocation(), Effect.SMOKE, 9999999,
 								9999999);
-						t.sendMessage("§7Voc\u00ea est\u00e1 sendo atacado por um §2§lFirelauncher§7!");
+						t.sendMessage("ï¿½7Voc\u00ea est\u00e1 sendo atacado por um ï¿½2ï¿½lFirelauncherï¿½7!");
 						final Vector vector = t.getLocation().getDirection();
 						vector.multiply(0.0f);
 						vector.setY(1.2f);

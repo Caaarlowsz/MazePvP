@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.anticheat.Utills;
 
 public class FastClick implements Listener {
@@ -38,12 +38,12 @@ public class FastClick implements Listener {
 				Utills.ClicksFastClicks.remove(Jogador);
 				Utills.FastAttackClicks.remove(Jogador);
 			}
-		}.runTaskLater(Main.getPlugin(), 20L);
+		}.runTaskLater(MazePvP.getPlugin(), 20L);
 		if (Utills.FastAttackClicks.get(Jogador) >= 50) {
 			Utills.FastAttack = FastClickTalvez.getMenssagem().replace("nick", Jogador.getName().toString())
 					.replace("avisos", new StringBuilder().append(Utills.AvisosFastClick.get(Jogador)).toString())
 					.replace("clicks", new StringBuilder().append(Utills.ClicksFastClicks.get(Jogador)).toString());
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Utills.FastAttackClicks.containsKey(Jogador)) {
@@ -63,7 +63,7 @@ public class FastClick implements Listener {
 			Utills.FastAttack = FastClickProvelmente.getMenssagem().replace("nick", Jogador.getName().toString())
 					.replace("avisos", new StringBuilder().append(Utills.AvisosFastClick.get(Jogador)).toString())
 					.replace("clicks", new StringBuilder().append(Utills.ClicksFastClicks.get(Jogador)).toString());
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Utills.FastAttackClicks.containsKey(Jogador)) {
@@ -83,7 +83,7 @@ public class FastClick implements Listener {
 			Utills.FastAttack = FastClickDefinitimante.getMenssagem().replace("nick", Jogador.getName().toString())
 					.replace("avisos", new StringBuilder().append(Utills.AvisosFastClick.get(Jogador)).toString())
 					.replace("clicks", new StringBuilder().append(Utills.ClicksFastClicks.get(Jogador)).toString());
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Utills.FastAttackClicks.containsKey(Jogador)) {

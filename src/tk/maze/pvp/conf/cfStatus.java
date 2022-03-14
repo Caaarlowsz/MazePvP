@@ -9,7 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.TopKillStreak;
 import tk.maze.pvp.scoreboard.sScoreAPI;
 
@@ -18,7 +18,7 @@ public class cfStatus {
 	public static FileConfiguration cfile;
 
 	public cfStatus() {
-		final Plugin plugin = Main.getPlugin();
+		final Plugin plugin = MazePvP.getPlugin();
 		if (!plugin.getDataFolder().exists()) {
 			plugin.getDataFolder().mkdir();
 		}

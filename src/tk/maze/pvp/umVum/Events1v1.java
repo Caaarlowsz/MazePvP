@@ -24,12 +24,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.API;
 import tk.maze.pvp.API.KitAPI;
 import tk.maze.pvp.API.WarpsAPI;
-import tk.maze.pvp.conf.cfGrupo;
-import tk.maze.pvp.invencivel.Prote\u00e7\u00e3o;
+import tk.maze.pvp.conf.cfGrupo;\u00e7\u00e3o;
 
 public class Events1v1 implements Listener {
 	public static List<Player> ChamouDuelo;
@@ -56,15 +55,15 @@ public class Events1v1 implements Listener {
 		}
 		if (p.getItemInHand().equals((Object) Join1v1.Item_)) {
 			if (Events1v1.ChamouDuelo.contains(p)) {
-				p.sendMessage("§cAguarde para desafiar outro jogador...");
+				p.sendMessage("ï¿½cAguarde para desafiar outro jogador...");
 				return;
 			}
 			final Player Player2 = (Player) event.getRightClicked();
 			Events1v1.AceitarDuelo.add(Player2);
 			Events1v1.ChamouDuelo.add(p);
-			p.sendMessage("§eVoc\u00ea desafiou o jogador §b" + Player2.getName() + " §epara um duelo!");
-			Player2.sendMessage("§eVoc\u00ea foi desafiado por §b" + p.getName() + " §epara um duelo!");
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			p.sendMessage("ï¿½eVoc\u00ea desafiou o jogador ï¿½b" + Player2.getName() + " ï¿½epara um duelo!");
+			Player2.sendMessage("ï¿½eVoc\u00ea foi desafiado por ï¿½b" + p.getName() + " ï¿½epara um duelo!");
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Events1v1.ChamouDuelo.contains(p)) {
@@ -81,7 +80,7 @@ public class Events1v1 implements Listener {
 		final Player player = event.getPlayer();
 		if (Events1v1.congelar.contains(player)) {
 			event.setTo(player.getLocation());
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Events1v1.congelar.remove(player);
@@ -120,7 +119,7 @@ public class Events1v1 implements Listener {
 				final ItemStack Espada = new ItemStack(Material.DIAMOND_SWORD);
 				Espada.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
 				final ItemMeta Espada2 = Espada.getItemMeta();
-				Espada2.setDisplayName("§5§oEspada");
+				Espada2.setDisplayName("ï¿½5ï¿½oEspada");
 				Espada.setItemMeta(Espada2);
 				p.getInventory().addItem(new ItemStack[] { Espada });
 				Player2.getInventory().addItem(new ItemStack[] { Espada });
@@ -146,7 +145,7 @@ public class Events1v1 implements Listener {
 						Speed1v1.Iniciou.remove(Player2);
 						Speed1v1.Partida1 = false;
 					}
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+					Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 						@Override
 						public void run() {
 							Player[] onlinePlayers;
@@ -160,7 +159,7 @@ public class Events1v1 implements Listener {
 							}
 						}
 					}, 2L);
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+					Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.plugin, (Runnable) new Runnable() {
 						@Override
 						public void run() {
 							if (Events1v1.congelar.contains(p)) {
@@ -171,7 +170,7 @@ public class Events1v1 implements Listener {
 							}
 						}
 					}, 20L);
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+					Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.plugin, (Runnable) new Runnable() {
 						@Override
 						public void run() {
 							if (Events1v1.congelar.contains(p)) {
@@ -182,7 +181,7 @@ public class Events1v1 implements Listener {
 							}
 						}
 					}, 40L);
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+					Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.plugin, (Runnable) new Runnable() {
 						@Override
 						public void run() {
 							if (Events1v1.congelar.contains(p)) {
@@ -218,12 +217,12 @@ public class Events1v1 implements Listener {
 				Events1v1.inPvP.remove(m);
 				Events1v1.inPvP.remove(v);
 				m.sendMessage("     ");
-				m.sendMessage("§eVoc\u00ea ganhou o duelo contra §b" + v.getName() + "§e com " + amountv + " sopas.");
+				m.sendMessage("ï¿½eVoc\u00ea ganhou o duelo contra ï¿½b" + v.getName() + "ï¿½e com " + amountv + " sopas.");
 				m.sendMessage("     ");
 				Prote\u00e7\u00e3o.setImortal(v, true);
 				Prote\u00e7\u00e3o.setImortal(m, true);
 				v.sendMessage("     ");
-				v.sendMessage("§eVoc\u00ea perdeu o duelo contra §b" + m.getName() + ". §eO jogador estava com "
+				v.sendMessage("ï¿½eVoc\u00ea perdeu o duelo contra ï¿½b" + m.getName() + ". ï¿½eO jogador estava com "
 						+ amountm + " sopas.");
 				v.sendMessage("     ");
 				WarpsAPI.Ir(m, "1v1");
@@ -233,7 +232,7 @@ public class Events1v1 implements Listener {
 				for (final PotionEffect effect : m.getActivePotionEffects()) {
 					m.removePotionEffect(effect.getType());
 				}
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						WarpsAPI.Ir(v, "1v1");
@@ -251,7 +250,7 @@ public class Events1v1 implements Listener {
 				Events1v1.Jogando1v1Player.remove(m);
 				Events1v1.JogandoSair.remove(m.getName());
 				Events1v1.JogandoSair.remove(v.getName());
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						v.getInventory().clear();
@@ -298,15 +297,15 @@ public class Events1v1 implements Listener {
 						new Material[] { Material.MUSHROOM_SOUP });
 				m.sendMessage("     ");
 				m.sendMessage(
-						"§eVoc\u00ea ganhou o duelo contra §b" + v.getName() + " §e com " + amountv + " §esopas.");
+						"ï¿½eVoc\u00ea ganhou o duelo contra ï¿½b" + v.getName() + " ï¿½e com " + amountv + " ï¿½esopas.");
 				m.sendMessage("     ");
 				Events1v1.inPvP.remove(m);
 				Events1v1.inPvP.remove(v);
 				Prote\u00e7\u00e3o.setImortal(v, true);
 				Prote\u00e7\u00e3o.setImortal(m, true);
 				v.sendMessage("     ");
-				v.sendMessage("§eVoc\u00ea perdeu o duelo contra §b" + m.getName() + " O jogador estava com " + amountm
-						+ " §esopas.");
+				v.sendMessage("ï¿½eVoc\u00ea perdeu o duelo contra ï¿½b" + m.getName() + " O jogador estava com " + amountm
+						+ " ï¿½esopas.");
 				v.sendMessage("     ");
 				WarpsAPI.Ir(m, "1v1");
 				m.setGameMode(GameMode.SURVIVAL);
@@ -315,7 +314,7 @@ public class Events1v1 implements Listener {
 				for (final PotionEffect effect : m.getActivePotionEffects()) {
 					m.removePotionEffect(effect.getType());
 				}
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						WarpsAPI.Ir(v, "1v1");
@@ -331,7 +330,7 @@ public class Events1v1 implements Listener {
 				Events1v1.Jogando1v1Player.remove(m);
 				Events1v1.JogandoSair.remove(m.getName());
 				Events1v1.JogandoSair.remove(v.getName());
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						v.getInventory().clear();
@@ -382,7 +381,7 @@ public class Events1v1 implements Listener {
 			for (final PotionEffect effect : t.getActivePotionEffects()) {
 				t.removePotionEffect(effect.getType());
 			}
-			t.sendMessage("§fO jogador §e§l" + p.getName() + " §fdeslogou durante o duelo!");
+			t.sendMessage("ï¿½fO jogador ï¿½eï¿½l" + p.getName() + " ï¿½fdeslogou durante o duelo!");
 			t.getInventory().setItem(3, Join1v1.Item_);
 			t.getInventory().setItem(5, Join1v1.Cinza);
 			KitAPI.setKit(t, "1v1");
@@ -406,7 +405,7 @@ public class Events1v1 implements Listener {
 				&& !cfGrupo.ChecarGrupo(p, "Mod") && !cfGrupo.ChecarGrupo(p, "Trial")
 				&& !cfGrupo.ChecarGrupo(p, "Youtuber+") && !cfGrupo.ChecarGrupo(p, "Helper")) {
 			event.getPlayer()
-					.sendMessage("§cVoc\u00ea n\u00e3o pode utilizar comandos na §6§l1V1§f. Use §3§l/SPAWN§f!");
+					.sendMessage("ï¿½cVoc\u00ea n\u00e3o pode utilizar comandos na ï¿½6ï¿½l1V1ï¿½f. Use ï¿½3ï¿½l/SPAWNï¿½f!");
 			event.setCancelled(true);
 		}
 	}
@@ -420,7 +419,7 @@ public class Events1v1 implements Listener {
 				&& !cfGrupo.ChecarGrupo(p, "Mod+") && !cfGrupo.ChecarGrupo(p, "Mod")
 				&& !cfGrupo.ChecarGrupo(p, "Trial")) {
 			event.getPlayer()
-					.sendMessage("§cVoc\u00ea est\u00e1 impossibilitado de utilizar comandos durante o duelo!");
+					.sendMessage("ï¿½cVoc\u00ea est\u00e1 impossibilitado de utilizar comandos durante o duelo!");
 			event.setCancelled(true);
 		}
 	}

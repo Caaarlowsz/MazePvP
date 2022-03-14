@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 
 public class Array {
 	public static LinkedHashMap<String, LinkedHashMap<String, String>> groups;
@@ -38,7 +38,7 @@ public class Array {
 	}
 
 	public static void InciarTag() {
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				final LinkedHashMap<String, LinkedHashMap<String, String>> JogadorData2 = new LinkedHashMap<String, LinkedHashMap<String, String>>();

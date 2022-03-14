@@ -24,7 +24,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.CooldownAPI;
 import tk.maze.pvp.API.KitAPI;
 import tk.maze.pvp.conf.cfGrupo;
@@ -135,7 +135,7 @@ public class Gladiator implements Listener {
 					Gladiator.noExecut.add(r);
 					Gladiator.fighting.put(p.getName(), r.getName());
 					Gladiator.fighting.put(r.getName(), p.getName());
-					Gladiator.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(),
+					Gladiator.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -146,7 +146,7 @@ public class Gladiator implements Listener {
 									}
 								}
 							}, 2400L);
-					Gladiator.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(),
+					Gladiator.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -208,7 +208,7 @@ public class Gladiator implements Listener {
 				&& Gladiator.fighting.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getClickedBlock().setType(Material.GLASS);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Gladiator.fighting.containsKey(e.getPlayer().getName())) {

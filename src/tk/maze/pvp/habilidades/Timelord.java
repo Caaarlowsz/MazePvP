@@ -13,7 +13,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.CooldownAPI;
 import tk.maze.pvp.API.KitAPI;
 
@@ -30,7 +30,7 @@ public class Timelord implements Listener {
 		if (p.getItemInHand().getType() == Material.WATCH
 				&& (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)) {
 			if (KitAPI.getKit(p) == "Timelord" && CooldownAPI.Cooldown.containsKey(p.getName())) {
-				p.sendMessage("§fO seu §3§lCOOLDOWN §facaba em: §c§l" + CooldownAPI.Cooldown(p) + "s");
+				p.sendMessage("ï¿½fO seu ï¿½3ï¿½lCOOLDOWN ï¿½facaba em: ï¿½cï¿½l" + CooldownAPI.Cooldown(p) + "s");
 				return;
 			}
 			if (KitAPI.getKit(p) == "Timelord") {
@@ -39,10 +39,10 @@ public class Timelord implements Listener {
 					if (t instanceof Player) {
 						final Player ta = (Player) t;
 						Timelord.frozenPlayers.add(((Player) t).getName());
-						((Player) t).sendMessage("§fVoc\u00ea foi congelado por um §e§lTIMELORD§f!");
+						((Player) t).sendMessage("ï¿½fVoc\u00ea foi congelado por um ï¿½eï¿½lTIMELORDï¿½f!");
 						CooldownAPI.addCooldown(p, 35);
-						p.sendMessage("§aVoc\u00ea congelou os jogador a sua volta");
-						Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+						p.sendMessage("ï¿½aVoc\u00ea congelou os jogador a sua volta");
+						Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 							@Override
 							public void run() {
 								Timelord.frozenPlayers.remove(ta.getName());

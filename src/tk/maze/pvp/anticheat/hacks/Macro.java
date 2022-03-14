@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.anticheat.Utills;
 
 public class Macro implements Listener {
@@ -38,12 +38,12 @@ public class Macro implements Listener {
 				Utills.ClicksMacro.remove(Jogador);
 				Utills.MacroClicks.remove(Jogador);
 			}
-		}.runTaskLater(Main.getPlugin(), 20L);
+		}.runTaskLater(MazePvP.getPlugin(), 20L);
 		if (Utills.MacroClicks.get(Jogador) >= 45) {
 			Utills.Macro = MacroTalvez.getMenssagem().replace("nick", Jogador.getName())
 					.replace("avisos", new StringBuilder().append(Utills.AvisosMacro.get(Jogador)).toString())
 					.replace("clicks", new StringBuilder().append(Utills.ClicksMacro.get(Jogador)).toString());
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Utills.Macro != null) {
@@ -62,7 +62,7 @@ public class Macro implements Listener {
 			Utills.Macro = MacroProvavelmente.getMenssagem().replace("nick", Jogador.getName())
 					.replace("avisos", new StringBuilder().append(Utills.AvisosMacro.get(Jogador)).toString())
 					.replace("clicks", new StringBuilder().append(Utills.ClicksMacro.get(Jogador)).toString());
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Utills.Macro != null) {
@@ -81,7 +81,7 @@ public class Macro implements Listener {
 			Utills.Macro = MacroDefinitivamente.getMenssagem().replace("nick", Jogador.getName())
 					.replace("avisos", new StringBuilder().append(Utills.AvisosMacro.get(Jogador)).toString())
 					.replace("clicks", new StringBuilder().append(Utills.ClicksMacro.get(Jogador)).toString());
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Utills.Macro != null) {

@@ -1,4 +1,4 @@
-package tk.maze.pvp;
+package com.github.caaarlowsz.mazemc.kitpvp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -91,7 +91,7 @@ import tk.maze.pvp.conf.cfConfig;
 import tk.maze.pvp.conf.cfEntrou;
 import tk.maze.pvp.conf.cfGrupo;
 import tk.maze.pvp.conf.cfKitdiario;
-import tk.maze.pvp.conf.cfPermiss\u00e3o;
+\u00e3o;
 import tk.maze.pvp.conf.cfStatus;
 import tk.maze.pvp.conf.cfTempGrupo;
 import tk.maze.pvp.events.ColorSigns;
@@ -143,10 +143,10 @@ import tk.maze.pvp.umVum.CmdsSpeed;
 import tk.maze.pvp.umVum.Events1v1;
 import tk.maze.pvp.umVum.Speed1v1;
 
-public class Main extends JavaPlugin {
+public class MazePvP extends JavaPlugin {
 	public static final String Menssagens;
 	public static ArrayList<String> logado1;
-	public static Main main;
+	public static MazePvP main;
 	public static Plugin plugin;
 	public static Injector injector;
 	public static boolean disableEvents;
@@ -158,31 +158,31 @@ public class Main extends JavaPlugin {
 
 	static {
 		Menssagens = null;
-		Main.logado1 = new ArrayList<String>();
-		Main.disableEvents = false;
-		Main.JogadoresLogados = new ArrayList<String>();
-		Main.logado = new ArrayList<String>();
-		Main.skit = new HashMap<String, ItemStack[]>();
-		Main.armor = new HashMap<String, ItemStack[]>();
+		MazePvP.logado1 = new ArrayList<String>();
+		MazePvP.disableEvents = false;
+		MazePvP.JogadoresLogados = new ArrayList<String>();
+		MazePvP.logado = new ArrayList<String>();
+		MazePvP.skit = new HashMap<String, ItemStack[]>();
+		MazePvP.armor = new HashMap<String, ItemStack[]>();
 	}
 
-	public static Main getInstance() {
-		return Main.main;
+	public static MazePvP getInstance() {
+		return MazePvP.main;
 	}
 
 	public static Plugin getPlugin() {
-		return Main.plugin;
+		return MazePvP.plugin;
 	}
 
 	public void onEnable() {
-		Main.plugin = (Plugin) this;
-		Bukkit.getConsoleSender().sendMessage("§9§lPLUGIN §fO plugin §b§lBROWK§f§lPVP §ffoi §a§lATIVADO!");
+		MazePvP.plugin = (Plugin) this;
+		Bukkit.getConsoleSender().sendMessage("ï¿½9ï¿½lPLUGIN ï¿½fO plugin ï¿½bï¿½lBROWKï¿½fï¿½lPVP ï¿½ffoi ï¿½aï¿½lATIVADO!");
 		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask((Plugin) this, (Runnable) new MoveCheck(), 41L,
 				40L);
 		Player[] onlinePlayers;
 		for (int length = (onlinePlayers = Bukkit.getOnlinePlayers()).length, i = 0; i < length; ++i) {
 			final Player todos = onlinePlayers[i];
-			todos.kickPlayer("   §b§lBROWKMC §7Aguarde! §7Estamos melhorando a sua jogabilidade, espero que entenda!");
+			todos.kickPlayer("   ï¿½bï¿½lBROWKMC ï¿½7Aguarde! ï¿½7Estamos melhorando a sua jogabilidade, espero que entenda!");
 		}
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(getPlugin(), (Runnable) new Runnable() {
 			@Override
@@ -223,10 +223,10 @@ public class Main extends JavaPlugin {
 	}
 
 	public void onLoad() {
-		Main.injector = new Injector();
-		final boolean injected = Main.injector.inject();
+		MazePvP.injector = new Injector();
+		final boolean injected = MazePvP.injector.inject();
 		if (injected) {
-			Main.injector.addServerConnectionChannel();
+			MazePvP.injector.addServerConnectionChannel();
 		}
 	}
 
@@ -378,8 +378,8 @@ public class Main extends JavaPlugin {
 	}
 
 	public static void PacketsIniciar() {
-		if (Main.cleanupTask == null) {
-			(Main.cleanupTask = new BukkitRunnable() {
+		if (MazePvP.cleanupTask == null) {
+			(MazePvP.cleanupTask = new BukkitRunnable() {
 				public void run() {
 				}
 			}).runTaskTimer(getPlugin(), 6000L, 6000L);
@@ -390,7 +390,7 @@ public class Main extends JavaPlugin {
 		Player[] onlinePlayers;
 		for (int length = (onlinePlayers = Bukkit.getOnlinePlayers()).length, i = 0; i < length; ++i) {
 			final Player p = onlinePlayers[i];
-			Main.injector.removeChannel(p);
+			MazePvP.injector.removeChannel(p);
 		}
 		while (!PacketHandler.getHandlers().isEmpty()) {
 			PacketHandler.removeHandler(PacketHandler.getHandlers().get(0));
@@ -406,7 +406,7 @@ public class Main extends JavaPlugin {
 	}
 
 	private void callEvent(final Event e) {
-		if (Main.disableEvents) {
+		if (MazePvP.disableEvents) {
 			return;
 		}
 		if (!this.isEnabled()) {
@@ -429,7 +429,7 @@ public class Main extends JavaPlugin {
 		if (!packet.getClass().getName().startsWith("net.minecraft.server.")) {
 			return packet;
 		}
-		if (!Main.disableEvents) {
+		if (!MazePvP.disableEvents) {
 			final PacketReceiveEvent event = new PacketReceiveEvent(packet, cancellable, p);
 			this.callEvent(event);
 		}
@@ -442,7 +442,7 @@ public class Main extends JavaPlugin {
 		if (!packet.getClass().getName().startsWith("net.minecraft.server.")) {
 			return packet;
 		}
-		if (!Main.disableEvents) {
+		if (!MazePvP.disableEvents) {
 			final PacketSendEvent event = new PacketSendEvent(packet, cancellable, p);
 			this.callEvent(event);
 		}

@@ -16,11 +16,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.KitAPI;
 
 public class Kangaroo implements Listener {
-	public static Main plugin;
+	public static MazePvP plugin;
 	public static ArrayList<Player> kanga;
 	public static ArrayList<Player> fujao;
 	public static List<Player> kangacd;

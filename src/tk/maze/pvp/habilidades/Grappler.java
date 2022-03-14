@@ -17,11 +17,11 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
 import net.minecraft.server.v1_7_R4.EntityHuman;
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.KitAPI;
 
 public class Grappler implements Listener {
-	public static Main plugin;
+	public static MazePvP plugin;
 	Map<Player, Cordinha> hooks;
 
 	public Grappler() {

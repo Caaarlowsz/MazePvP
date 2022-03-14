@@ -23,7 +23,7 @@ import net.minecraft.server.v1_7_R4.EntityPlayer;
 import net.minecraft.server.v1_7_R4.Packet;
 import net.minecraft.server.v1_7_R4.PacketPlayOutNamedEntitySpawn;
 import net.minecraft.util.com.mojang.authlib.GameProfile;
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.nametag.Array;
 import tk.maze.pvp.nametag.NameTagChangeEvento;
 import tk.maze.pvp.nametag.NametagUtils;
@@ -49,7 +49,7 @@ public class Fake implements Listener, CommandExecutor {
 			if (cmd.getName().equalsIgnoreCase("fake")) {
 				if (p.hasPermission("flame.fake")) {
 					if (args.length == 0) {
-						p.sendMessage("§cSintaxe correta: /fake (nome)");
+						p.sendMessage("ï¿½cSintaxe correta: /fake (nome)");
 						return false;
 					}
 					if (args.length == 1) {
@@ -59,28 +59,28 @@ public class Fake implements Listener, CommandExecutor {
 								Fake.fakes.remove(p.getName());
 								this.refreshPlayer(p);
 								p.setDisplayName((String) Fake.fake.get(p.getName()));
-								p.setPlayerListName("§f" + Fake.fake.get(p.getName()));
+								p.setPlayerListName("ï¿½f" + Fake.fake.get(p.getName()));
 								mudarNome(p, Fake.fake.get(p.getName()));
-								p.sendMessage("§aSua tag foi alterada para: §7§lNORMAL");
+								p.sendMessage("ï¿½aSua tag foi alterada para: ï¿½7ï¿½lNORMAL");
 								p.setDisplayName((String) Fake.fake.get(p.getName()));
-								String prefix = "§0§7";
+								String prefix = "ï¿½0ï¿½7";
 								NameTagChangeEvento.NametagChangeReason reason = null;
 								reason = NameTagChangeEvento.NametagChangeReason.SET_PREFIX;
 								prefix = NametagUtils.formatColors(prefix);
-								String suffix = " §7{" + sScoreAPI.getRank(p) + "§7}";
+								String suffix = " ï¿½7{" + sScoreAPI.getRank(p) + "ï¿½7}";
 								reason = NameTagChangeEvento.NametagChangeReason.SET_SUFFIX;
 								suffix = NametagUtils.formatColors(suffix);
 								Array.SetarNameTagSoft(p.getName(), prefix, suffix, reason);
 								PlayerLoader.update(p.getName(), prefix, suffix);
-								p.sendMessage("§7Voce resetou seu fake.");
+								p.sendMessage("ï¿½7Voce resetou seu fake.");
 							}
 						} else if (!Fake.fakes.contains(args[0])) {
 							if (Fake.usandoFake.contains(p)) {
-								p.sendMessage("§cSintaxe correta: /fake #");
+								p.sendMessage("ï¿½cSintaxe correta: /fake #");
 								return true;
 							}
 							if (args[0].length() > 16) {
-								p.sendMessage("§cnick grande demais escolha outro");
+								p.sendMessage("ï¿½cnick grande demais escolha outro");
 								return true;
 							}
 							final String nome = p.getName();
@@ -92,7 +92,7 @@ public class Fake implements Listener, CommandExecutor {
 							Fake.fake.put(p.getName(), nome);
 							p.setDisplayName(args[0]);
 							p.setPlayerListName(args[0]);
-							p.sendMessage("§7Seu nome agora \u00e9 §a" + args[0]);
+							p.sendMessage("ï¿½7Seu nome agora \u00e9 ï¿½a" + args[0]);
 						}
 					}
 				} else {
@@ -129,7 +129,7 @@ public class Fake implements Listener, CommandExecutor {
 			name.set(gameProfile, nome);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			p.sendMessage("§cErro ao mudar");
+			p.sendMessage("ï¿½cErro ao mudar");
 		}
 		Player[] arrayOfPlayer;
 		for (int name2 = (arrayOfPlayer = Bukkit.getOnlinePlayers()).length,
@@ -155,7 +155,7 @@ public class Fake implements Listener, CommandExecutor {
 		Preconditions.checkNotNull((Object) forWhom, (Object) "forWhom");
 		if (player != forWhom && player.getWorld() == forWhom.getWorld() && forWhom.canSee(player)) {
 			forWhom.hidePlayer(player);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) MazePvP.getInstance(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {

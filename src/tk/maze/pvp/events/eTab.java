@@ -12,7 +12,7 @@ import net.minecraft.server.v1_7_R4.ChatSerializer;
 import net.minecraft.server.v1_7_R4.IChatBaseComponent;
 import net.minecraft.server.v1_7_R4.Packet;
 import net.minecraft.server.v1_7_R4.PlayerConnection;
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.check.CheckUtils;
 import tk.maze.pvp.conf.cfStatus;
 
@@ -26,17 +26,17 @@ public class eTab implements Listener {
 	@EventHandler
 	void TabDoServidor(final PlayerJoinEvent evento) {
 		final Player jogador = evento.getPlayer();
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				final PlayerConnection connect = ((CraftPlayer) jogador).getHandle().playerConnection;
 				final IChatBaseComponent top = ChatSerializer.a(
-						"{'extra': [{text: '', color: 'aqua'}],'color': gold, 'text': '        §b§lBROWK§f§lPVP             '}");
+						"{'extra': [{text: '', color: 'aqua'}],'color': gold, 'text': '        ï¿½bï¿½lBROWKï¿½fï¿½lPVP             '}");
 				final IChatBaseComponent bottom = ChatSerializer
-						.a("{'extra': [{'color': 'aqua', 'text': ' \n      §7Kills: §b" + cfStatus.getKills(jogador)
-								+ "  §f-  §7Deaths: §b" + cfStatus.getDeaths(jogador) + "§f  -  §7KillStreak: §b"
-								+ cfStatus.getKillStreak(jogador) + "\n" + "§7Grupo: " + CheckUtils.Grupo(jogador)
-								+ "  §f-  §7Ping: §b" + ((CraftPlayer) jogador).getHandle().ping + "  §f-  §7XP: §b"
+						.a("{'extra': [{'color': 'aqua', 'text': ' \n      ï¿½7Kills: ï¿½b" + cfStatus.getKills(jogador)
+								+ "  ï¿½f-  ï¿½7Deaths: ï¿½b" + cfStatus.getDeaths(jogador) + "ï¿½f  -  ï¿½7KillStreak: ï¿½b"
+								+ cfStatus.getKillStreak(jogador) + "\n" + "ï¿½7Grupo: " + CheckUtils.Grupo(jogador)
+								+ "  ï¿½f-  ï¿½7Ping: ï¿½b" + ((CraftPlayer) jogador).getHandle().ping + "  ï¿½f-  ï¿½7XP: ï¿½b"
 								+ cfStatus.getMoney(jogador) + "\n"
 								+ "', 'underline': 'true'}], 'color': 'gold', 'text': ''}");
 				if (((CraftPlayer) jogador).getHandle().playerConnection.networkManager.getVersion() < eTab.VERSION) {

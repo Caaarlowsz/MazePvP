@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.commands.FlyCommand;
-import tk.maze.pvp.invencivel.Prote\u00e7\u00e3o;
+\u00e7\u00e3o;
 import tk.maze.pvp.scoreboard.sScoreAPI;
 
 public class KitAPI {
@@ -62,7 +62,7 @@ public class KitAPI {
 			p.getInventory().setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
 			p.getInventory().setLeggings(new ItemStack(Material.IRON_LEGGINGS));
 			p.getInventory().setBoots(new ItemStack(Material.IRON_BOOTS));
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Prote\u00e7\u00e3o.setImortal(p, false);

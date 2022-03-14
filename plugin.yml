@@ -1,6 +1,6 @@
 name: KitPvP
 version: 1.0
-main: tk.maze.pvp.Main
+main: com.github.caaarlowsz.mazemc.kitpvp.Main
 commands:
   groupset:
   tempgroupset:

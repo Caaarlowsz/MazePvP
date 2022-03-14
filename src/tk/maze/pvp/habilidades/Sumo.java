@@ -14,7 +14,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.CooldownAPI;
 import tk.maze.pvp.API.KitAPI;
 
@@ -50,7 +50,7 @@ public class Sumo implements Listener {
 							e.getPlayer().teleport(Local.add(0.0, 1.0, 0.0));
 							CooldownAPI.addCooldown(p, 35);
 							this.Cima.add(p.getName());
-							Bukkit.getServer().getScheduler().runTaskLater(Main.getPlugin(), (Runnable) new Runnable() {
+							Bukkit.getServer().getScheduler().runTaskLater(MazePvP.getPlugin(), (Runnable) new Runnable() {
 								@Override
 								public void run() {
 									a.setType(Material.AIR);
@@ -60,7 +60,7 @@ public class Sumo implements Listener {
 						}
 					}
 				} else {
-					p.sendMessage("§fO seu §3§lCOOLDOWN §facaba em: §c§l" + CooldownAPI.Cooldown(p) + "s");
+					p.sendMessage("ï¿½fO seu ï¿½3ï¿½lCOOLDOWN ï¿½facaba em: ï¿½cï¿½l" + CooldownAPI.Cooldown(p) + "s");
 				}
 			}
 		}

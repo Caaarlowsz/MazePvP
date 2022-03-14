@@ -18,20 +18,20 @@ import net.minecraft.server.v1_7_R4.ChatSerializer;
 import net.minecraft.server.v1_7_R4.IChatBaseComponent;
 import net.minecraft.server.v1_7_R4.Packet;
 import net.minecraft.server.v1_7_R4.PacketPlayOutChat;
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.bossbar.api.BossBarAPI;
 import tk.maze.pvp.commands.GiveAllCommand;
 import tk.maze.pvp.conf.cfConfig;
 import tk.maze.pvp.conf.cfGrupo;
 import tk.maze.pvp.conf.cfKitdiario;
-import tk.maze.pvp.conf.cfPermiss\u00e3o;
+\u00e3o;
 import tk.maze.pvp.conf.cfStatus;
 import tk.maze.pvp.conf.cfTempGrupo;
 import tk.maze.pvp.events.CorGrupo;
 import tk.maze.pvp.habilidades.Ajnin;
 import tk.maze.pvp.habilidades.Ninja;
 import tk.maze.pvp.habilidades.Strong;
-import tk.maze.pvp.invencivel.Prote\u00e7\u00e3o;
+\u00e7\u00e3o;
 import tk.maze.pvp.nametag.Array;
 import tk.maze.pvp.nametag.NametagManager;
 import tk.maze.pvp.nametag.NametagUtils;
@@ -50,7 +50,7 @@ public class API {
 	public static void BarAPI(final Player p, final String menssagem) {
 		final int numero = 20;
 		BossBarAPI.setMessage(p, menssagem);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				BossBarAPI.removeBar(p);
@@ -212,7 +212,7 @@ public class API {
 	}
 
 	public static void acharTag(final Player p) {
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				API.checarGrupo(p);
@@ -398,7 +398,7 @@ public class API {
 	}
 
 	public static void checarNameTag(final Player p) {
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				NametagManager.MandarTeamsParaJogador(p);
@@ -421,7 +421,7 @@ public class API {
 				}
 			}
 		}, 1L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				API.acharTag(p);

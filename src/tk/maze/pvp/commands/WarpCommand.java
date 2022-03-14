@@ -19,11 +19,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.API;
 import tk.maze.pvp.API.KitAPI;
 import tk.maze.pvp.API.WarpsAPI;
-import tk.maze.pvp.invencivel.Prote\u00e7\u00e3o;
+\u00e7\u00e3o;
 import tk.maze.pvp.menus.WarpsMenu;
 import tk.maze.pvp.scoreboard.sScoreAPI;
 
@@ -41,7 +41,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 				p.getInventory().clear();
 				p.getInventory().setArmorContents((ItemStack[]) null);
 				p.sendMessage("");
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setGameMode(GameMode.SURVIVAL);
@@ -59,11 +59,11 @@ public class WarpCommand implements CommandExecutor, Listener {
 						Prote\u00e7\u00e3o.setImortal(p, false);
 						final ItemStack book = new ItemStack(Material.WRITTEN_BOOK, 1);
 						final BookMeta bm = (BookMeta) book.getItemMeta();
-						bm.setAuthor("§b§lEvento!");
-						bm.setTitle("§b§lComo Jogar!");
+						bm.setAuthor("ï¿½bï¿½lEvento!");
+						bm.setTitle("ï¿½bï¿½lComo Jogar!");
 						final ArrayList<String> pages = new ArrayList<String>();
 						pages.add(
-								"§7Seja bem-vindo ao nosso evento.Aki voce deverar esperar o organizador de evento setar o kit.e depois voces irao batalhar e no final tera um ganhador que levara um vip 1 semana.");
+								"ï¿½7Seja bem-vindo ao nosso evento.Aki voce deverar esperar o organizador de evento setar o kit.e depois voces irao batalhar e no final tera um ganhador que levara um vip 1 semana.");
 						bm.setPages(pages);
 						book.setItemMeta((ItemMeta) bm);
 						p.getInventory().setItem(4, book);
@@ -77,7 +77,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 				p.getInventory().clear();
 				p.getInventory().setArmorContents((ItemStack[]) null);
 				p.sendMessage("");
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setGameMode(GameMode.SURVIVAL);
@@ -117,7 +117,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 				p.closeInventory();
 				p.getInventory().clear();
 				p.getInventory().setArmorContents((ItemStack[]) null);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.removePotionEffect(PotionEffectType.BLINDNESS);
@@ -137,11 +137,11 @@ public class WarpCommand implements CommandExecutor, Listener {
 						WarpsAPI.segundos.remove(p.getName());
 						final ItemStack Espada = new ItemStack(Material.BLAZE_ROD);
 						final ItemMeta kEspada = Espada.getItemMeta();
-						kEspada.setDisplayName("§eDesafie um jogador! §8(bot\u00e3o direito)");
+						kEspada.setDisplayName("ï¿½eDesafie um jogador! ï¿½8(bot\u00e3o direito)");
 						Espada.setItemMeta(kEspada);
 						final ItemStack Espada2 = new ItemStack(Material.INK_SACK, 1, (short) 8);
 						final ItemMeta kEspada2 = Espada2.getItemMeta();
-						kEspada2.setDisplayName("§eDuelo r\u00e1pido! §8(bot\u00e3o direito)");
+						kEspada2.setDisplayName("ï¿½eDuelo r\u00e1pido! ï¿½8(bot\u00e3o direito)");
 						Espada2.setItemMeta(kEspada2);
 						p.getInventory().setItem(3, Espada);
 						p.getInventory().setItem(5, Espada2);
@@ -153,7 +153,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 				p.closeInventory();
 				p.getInventory().clear();
 				p.getInventory().setArmorContents((ItemStack[]) null);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.removePotionEffect(PotionEffectType.BLINDNESS);
@@ -191,7 +191,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 				p.getInventory().clear();
 				p.getInventory().setArmorContents((ItemStack[]) null);
 				p.sendMessage("");
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setGameMode(GameMode.SURVIVAL);
@@ -219,7 +219,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 						p.getInventory().setItem(15, API.criarItem(p, Material.BOWL, "", new String[0], 64, (short) 0));
 						final ItemStack Espada = new ItemStack(Material.STICK);
 						final ItemMeta kEspada = Espada.getItemMeta();
-						kEspada.setDisplayName("§eKnockBack");
+						kEspada.setDisplayName("ï¿½eKnockBack");
 						kEspada.addEnchant(Enchantment.KNOCKBACK, 5, true);
 						Espada.setItemMeta(kEspada);
 						p.getInventory().setItem(0, Espada);
@@ -231,7 +231,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 				p.getInventory().clear();
 				p.getInventory().setArmorContents((ItemStack[]) null);
 				p.sendMessage("");
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setGameMode(GameMode.SURVIVAL);
@@ -255,22 +255,22 @@ public class WarpCommand implements CommandExecutor, Listener {
 						final ItemStack peitoral = new ItemStack(Material.IRON_CHESTPLATE);
 						final ItemMeta peitoralm = peitoral.getItemMeta();
 						peitoralm.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, true);
-						peitoralm.setDisplayName("§b§lPeitoral de Ferro");
+						peitoralm.setDisplayName("ï¿½bï¿½lPeitoral de Ferro");
 						peitoral.setItemMeta(peitoralm);
 						final ItemStack capacete = new ItemStack(Material.IRON_HELMET);
 						final ItemMeta capacetem = capacete.getItemMeta();
 						capacetem.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, true);
-						capacetem.setDisplayName("§b§lCapacete de Ferro");
+						capacetem.setDisplayName("ï¿½bï¿½lCapacete de Ferro");
 						capacete.setItemMeta(capacetem);
 						final ItemStack calca = new ItemStack(Material.IRON_LEGGINGS);
 						final ItemMeta calcam = peitoral.getItemMeta();
 						calcam.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, true);
-						calcam.setDisplayName("§b§lCal\u00e7a de Ferro");
+						calcam.setDisplayName("ï¿½bï¿½lCal\u00e7a de Ferro");
 						calca.setItemMeta(calcam);
 						final ItemStack bota = new ItemStack(Material.IRON_BOOTS);
 						final ItemMeta botam = bota.getItemMeta();
 						botam.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, true);
-						botam.setDisplayName("§b§lBotas de Ferro");
+						botam.setDisplayName("ï¿½bï¿½lBotas de Ferro");
 						bota.setItemMeta(botam);
 						p.getInventory().setHelmet(capacete);
 						p.getInventory().setChestplate(peitoral);
@@ -295,7 +295,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 				p.getInventory().clear();
 				p.getInventory().setArmorContents((ItemStack[]) null);
 				p.sendMessage("");
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setGameMode(GameMode.SURVIVAL);
@@ -314,7 +314,7 @@ public class WarpCommand implements CommandExecutor, Listener {
 						Prote\u00e7\u00e3o.setImortal(p, false);
 						final ItemStack Espada = new ItemStack(Material.FISHING_ROD);
 						final ItemMeta kEspada = Espada.getItemMeta();
-						kEspada.setDisplayName("§5§oVara de pesca");
+						kEspada.setDisplayName("ï¿½5ï¿½oVara de pesca");
 						Espada.setItemMeta(kEspada);
 						p.getInventory().setItem(0, Espada);
 					}

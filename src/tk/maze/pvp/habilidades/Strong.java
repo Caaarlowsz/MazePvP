@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.CooldownAPI;
 import tk.maze.pvp.API.KitAPI;
 
@@ -34,7 +34,7 @@ public class Strong implements Listener {
 		if (KitAPI.getKit(p) == "Strong" && CooldownAPI.Cooldown.containsKey(p.getName())
 				&& p.getItemInHand().getType() == Material.WATCH) {
 			e.setCancelled(true);
-			p.sendMessage("§fO seu §3§lCOOLDOWN §facaba em: §c§l" + CooldownAPI.Cooldown(p) + "s");
+			p.sendMessage("ï¿½fO seu ï¿½3ï¿½lCOOLDOWN ï¿½facaba em: ï¿½cï¿½l" + CooldownAPI.Cooldown(p) + "s");
 		} else if (KitAPI.getKit(p) == "Strong" && !CooldownAPI.Cooldown.containsKey(p.getName())
 				&& p.getItemInHand().getType() == Material.WATCH) {
 			Strong.salvarInventario.put(p, p.getInventory().getContents());
@@ -53,14 +53,14 @@ public class Strong implements Listener {
 			p.getInventory().setItem(0, Espada);
 			p.updateInventory();
 			CooldownAPI.addCooldown(p, 60);
-			p.sendMessage("§fAgora voc\u00ea est\u00e1 §7§lFULLIRON §fpor §a§l10 segundos§f.");
+			p.sendMessage("ï¿½fAgora voc\u00ea est\u00e1 ï¿½7ï¿½lFULLIRON ï¿½fpor ï¿½aï¿½l10 segundosï¿½f.");
 			Strong.fulliron.add(p);
 			if (Strong.fulliron.contains(p)) {
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (Strong.fulliron.contains(p)) {
-							p.sendMessage("§aA sua armadura voltou ao normal!");
+							p.sendMessage("ï¿½aA sua armadura voltou ao normal!");
 							p.getInventory().setArmorContents((ItemStack[]) null);
 							p.closeInventory();
 							p.getInventory().remove(Material.IRON_CHESTPLATE);
@@ -73,7 +73,7 @@ public class Strong implements Listener {
 								final ItemStack Espada = new ItemStack(Material.WOOD_SWORD);
 								Espada.addEnchantment(Enchantment.DAMAGE_ALL, 1);
 								final ItemMeta kEspada = Espada.getItemMeta();
-								kEspada.setDisplayName("§eEspada");
+								kEspada.setDisplayName("ï¿½eEspada");
 								Espada.setItemMeta(kEspada);
 								p.getInventory().setItem(0, Espada);
 							}

@@ -18,12 +18,12 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.API;
 import tk.maze.pvp.API.ArraysAPI;
 import tk.maze.pvp.API.KitAPI;
 import tk.maze.pvp.conf.cfGrupo;
-import tk.maze.pvp.invencivel.Prote\u00e7\u00e3o;
+\u00e7\u00e3o;
 import tk.maze.pvp.scoreboard.sScoreAPI;
 
 public class AdminCommand implements CommandExecutor, Listener {
@@ -46,7 +46,7 @@ public class AdminCommand implements CommandExecutor, Listener {
 				&& e.getAction() == Action.RIGHT_CLICK_AIR)
 				|| (e.getAction() == Action.RIGHT_CLICK_BLOCK && p.getItemInHand().hasItemMeta()
 						&& p.getItemInHand().getItemMeta().hasDisplayName()
-						&& p.getItemInHand().getItemMeta().getDisplayName().equals("§aTroca Rapida"))) {
+						&& p.getItemInHand().getItemMeta().getDisplayName().equals("ï¿½aTroca Rapida"))) {
 			Player[] onlinePlayers;
 			for (int length = (onlinePlayers = Bukkit.getOnlinePlayers()).length, i = 0; i < length; ++i) {
 				final Player todos = onlinePlayers[i];
@@ -55,19 +55,19 @@ public class AdminCommand implements CommandExecutor, Listener {
 			}
 			p.setGameMode(GameMode.SURVIVAL);
 			ArraysAPI.Admin.remove(p);
-			p.sendMessage("§aTroca r\u00e1pida efetuada com sucesso! ");
+			p.sendMessage("ï¿½aTroca r\u00e1pida efetuada com sucesso! ");
 			p.getInventory().clear();
 			p.getInventory().setArmorContents((ItemStack[]) null);
 			p.getInventory().setItem(4,
-					API.criarItem(p, Material.SLIME_BALL, "§aTrocaRapida", new String[] { "" }, 1, (short) 0));
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+					API.criarItem(p, Material.SLIME_BALL, "ï¿½aTrocaRapida", new String[] { "" }, 1, (short) 0));
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					ArraysAPI.Admin.add(p);
 					p.getInventory().clear();
 					p.getInventory().setArmorContents((ItemStack[]) null);
 					p.getInventory().setItem(4,
-							API.criarItem(p, Material.SLIME_BALL, "§aTrocaRapida", new String[] { "" }, 1, (short) 0));
+							API.criarItem(p, Material.SLIME_BALL, "ï¿½aTrocaRapida", new String[] { "" }, 1, (short) 0));
 					p.setGameMode(GameMode.CREATIVE);
 					p.setHealth(20.0);
 					AdminCommand.setAdmin(p);
@@ -83,7 +83,7 @@ public class AdminCommand implements CommandExecutor, Listener {
 				&& p.getItemInHand().getType() == Material.MUSHROOM_SOUP && ArraysAPI.Admin.contains(p)) {
 			final Player t = (Player) e.getRightClicked();
 			if (ArraysAPI.Checando.contains(t)) {
-				p.sendMessage("§4§lERRO §7Outro membro da equipe j\u00e1 est\u00e1 realizando testes neste jogador!");
+				p.sendMessage("ï¿½4ï¿½lERRO ï¿½7Outro membro da equipe j\u00e1 est\u00e1 realizando testes neste jogador!");
 				return;
 			}
 			AdminCommand.inventario.put(t, t.getInventory().getContents());
@@ -92,57 +92,57 @@ public class AdminCommand implements CommandExecutor, Listener {
 			ArraysAPI.Checando.add(t);
 			p.openInventory((Inventory) t.getInventory());
 			t.getInventory().setItem(4,
-					API.criarItem(p, Material.MUSHROOM_SOUP, "§f§oSopa", new String[] { "" }, 1, (short) 0));
+					API.criarItem(p, Material.MUSHROOM_SOUP, "ï¿½fï¿½oSopa", new String[] { "" }, 1, (short) 0));
 			t.getInventory().setItem(13,
-					API.criarItem(p, Material.MUSHROOM_SOUP, "§f§oSopa", new String[] { "" }, 1, (short) 0));
+					API.criarItem(p, Material.MUSHROOM_SOUP, "ï¿½fï¿½oSopa", new String[] { "" }, 1, (short) 0));
 			t.getInventory().setItem(9,
-					API.criarItem(p, Material.MUSHROOM_SOUP, "§f§oSopa", new String[] { "" }, 1, (short) 0));
-			p.sendMessage("§aCarregando informa\u00e7\u00f5es...");
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+					API.criarItem(p, Material.MUSHROOM_SOUP, "ï¿½fï¿½oSopa", new String[] { "" }, 1, (short) 0));
+			p.sendMessage("ï¿½aCarregando informa\u00e7\u00f5es...");
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (API.getAmount(t, Material.BOWL) >= 1) {
 						p.closeInventory();
-						p.sendMessage("§c§m>-------------------------<");
-						p.sendMessage("               §6» §f§lAUTOSOUP §6«     ");
-						p.sendMessage("§c§m>-------------------------<");
+						p.sendMessage("ï¿½cï¿½m>-------------------------<");
+						p.sendMessage("               ï¿½6ï¿½ ï¿½fï¿½lAUTOSOUP ï¿½6ï¿½     ");
+						p.sendMessage("ï¿½cï¿½m>-------------------------<");
 						p.sendMessage(" ");
-						p.sendMessage("§6\u2022 §fProbabilidade: §2§lBAIXA");
-						p.sendMessage("§6\u2022 §fSopas tomadas: §6§l1");
+						p.sendMessage("ï¿½6\u2022 ï¿½fProbabilidade: ï¿½2ï¿½lBAIXA");
+						p.sendMessage("ï¿½6\u2022 ï¿½fSopas tomadas: ï¿½6ï¿½l1");
 						p.sendMessage(" ");
-						p.sendMessage("§c§m>-------------------------<");
+						p.sendMessage("ï¿½cï¿½m>-------------------------<");
 						if (API.getAmount(t, Material.BOW) >= 3) {
 							p.closeInventory();
-							p.sendMessage("§c§m>-------------------------<");
-							p.sendMessage("               §6» §f§lAUTOSOUP §6«     ");
-							p.sendMessage("§c§m>-------------------------<");
+							p.sendMessage("ï¿½cï¿½m>-------------------------<");
+							p.sendMessage("               ï¿½6ï¿½ ï¿½fï¿½lAUTOSOUP ï¿½6ï¿½     ");
+							p.sendMessage("ï¿½cï¿½m>-------------------------<");
 							p.sendMessage(" ");
-							p.sendMessage("§6\u2022 §fProbabilidade: §4§lCERTEZA");
-							p.sendMessage("§6\u2022 §fSopas tomadas: §6§l3");
+							p.sendMessage("ï¿½6\u2022 ï¿½fProbabilidade: ï¿½4ï¿½lCERTEZA");
+							p.sendMessage("ï¿½6\u2022 ï¿½fSopas tomadas: ï¿½6ï¿½l3");
 							p.sendMessage(" ");
-							p.sendMessage("§c§m>-------------------------<");
+							p.sendMessage("ï¿½cï¿½m>-------------------------<");
 						}
 						if (API.getAmount(t, Material.BOWL) >= 2) {
 							p.closeInventory();
-							p.sendMessage("§c§m>-------------------------<");
-							p.sendMessage("               §6» §f§lAUTOSOUP §6«     ");
-							p.sendMessage("§c§m>-------------------------<");
+							p.sendMessage("ï¿½cï¿½m>-------------------------<");
+							p.sendMessage("               ï¿½6ï¿½ ï¿½fï¿½lAUTOSOUP ï¿½6ï¿½     ");
+							p.sendMessage("ï¿½cï¿½m>-------------------------<");
 							p.sendMessage(" ");
-							p.sendMessage("§6\u2022 §fProbabilidade: §6§lMEDIA");
-							p.sendMessage("§6\u2022 §fSopas tomadas: §6§l2");
+							p.sendMessage("ï¿½6\u2022 ï¿½fProbabilidade: ï¿½6ï¿½lMEDIA");
+							p.sendMessage("ï¿½6\u2022 ï¿½fSopas tomadas: ï¿½6ï¿½l2");
 							p.sendMessage(" ");
-							p.sendMessage("§c§m>-------------------------<");
+							p.sendMessage("ï¿½cï¿½m>-------------------------<");
 						}
 					} else if (API.getAmount(t, Material.BOWL) == 0) {
 						p.closeInventory();
-						p.sendMessage("§c§m>-------------------------<");
-						p.sendMessage("               §6» §f§lAUTOSOUP §6«     ");
-						p.sendMessage("§c§m>-------------------------<");
+						p.sendMessage("ï¿½cï¿½m>-------------------------<");
+						p.sendMessage("               ï¿½6ï¿½ ï¿½fï¿½lAUTOSOUP ï¿½6ï¿½     ");
+						p.sendMessage("ï¿½cï¿½m>-------------------------<");
 						p.sendMessage(" ");
-						p.sendMessage("§6\u2022 §fProbabilidade: §a§lNENHUMA");
-						p.sendMessage("§6\u2022 §fSopas tomadas: §6§l0");
+						p.sendMessage("ï¿½6\u2022 ï¿½fProbabilidade: ï¿½aï¿½lNENHUMA");
+						p.sendMessage("ï¿½6\u2022 ï¿½fSopas tomadas: ï¿½6ï¿½l0");
 						p.sendMessage(" ");
-						p.sendMessage("§c§m>-------------------------<");
+						p.sendMessage("ï¿½cï¿½m>-------------------------<");
 					}
 					ArraysAPI.Checando.remove(t);
 					t.getInventory().clear();
@@ -154,7 +154,7 @@ public class AdminCommand implements CommandExecutor, Listener {
 		}
 		if (p.getItemInHand().getType() == Material.IRON_FENCE && ArraysAPI.Admin.contains(p)) {
 			final Player t = (Player) e.getRightClicked();
-			p.sendMessage("§a§l(!) §7Voc\u00ea prendeu o jogador: §6§l" + t.getName());
+			p.sendMessage("ï¿½aï¿½l(!) ï¿½7Voc\u00ea prendeu o jogador: ï¿½6ï¿½l" + t.getName());
 			t.getLocation().add(0.0, 13.0, 0.0).getBlock().setType(Material.BEDROCK);
 			t.getLocation().add(0.0, 11.0, 1.0).getBlock().setType(Material.BEDROCK);
 			t.getLocation().add(1.0, 11.0, 0.0).getBlock().setType(Material.BEDROCK);
@@ -177,7 +177,7 @@ public class AdminCommand implements CommandExecutor, Listener {
 					&& !cfGrupo.ChecarGrupo(p, "Admin") && !cfGrupo.ChecarGrupo(p, "Mod+")
 					&& !cfGrupo.ChecarGrupo(p, "Mod") && !cfGrupo.ChecarGrupo(p, "Trial")
 					&& !cfGrupo.ChecarGrupo(p, "Youtuber+") && !cfGrupo.ChecarGrupo(p, "Helper")) {
-				p.sendMessage("§c§l(!) §cVoc\u00ea n\u00e3o possui permiss\u00e3o para executar este comando!");
+				p.sendMessage("ï¿½cï¿½l(!) ï¿½cVoc\u00ea n\u00e3o possui permiss\u00e3o para executar este comando!");
 				return true;
 			}
 			if (!ArraysAPI.Admin.contains(p)) {
@@ -188,16 +188,16 @@ public class AdminCommand implements CommandExecutor, Listener {
 				p.getInventory().clear();
 				p.getInventory().setArmorContents((ItemStack[]) null);
 				Prote\u00e7\u00e3o.setImortal(p, false);
-				p.sendMessage("§b§lADMIN: §fModo Admin: §aATIVADO");
-				p.sendMessage("§b§lINVIS: §fVoc\u00ea est\u00e1 invis\u00edvel para todos os jogadores!");
-				API.sendWarn("§7§o[" + p.getName() + "§7§o entrou no modo ADMIN]");
+				p.sendMessage("ï¿½bï¿½lADMIN: ï¿½fModo Admin: ï¿½aATIVADO");
+				p.sendMessage("ï¿½bï¿½lINVIS: ï¿½fVoc\u00ea est\u00e1 invis\u00edvel para todos os jogadores!");
+				API.sendWarn("ï¿½7ï¿½o[" + p.getName() + "ï¿½7ï¿½o entrou no modo ADMIN]");
 				KitAPI.setKitAntes(p, "Admin");
 				API.setWarp(p, "Admin");
 				p.setHealth(20.0);
 				p.setMaxHealth(20.0);
 				p.setGameMode(GameMode.CREATIVE);
 				p.getInventory().setItem(4,
-						API.criarItem(p, Material.SLIME_BALL, "§aTrocaRapida", new String[] { "" }, 1, (short) 0));
+						API.criarItem(p, Material.SLIME_BALL, "ï¿½aTrocaRapida", new String[] { "" }, 1, (short) 0));
 				setAdmin(p);
 				ArraysAPI.Jogando.remove(p);
 				Player[] onlinePlayers;
@@ -210,9 +210,9 @@ public class AdminCommand implements CommandExecutor, Listener {
 			}
 			if (ArraysAPI.Admin.contains(p)) {
 				ArraysAPI.Admin.remove(p);
-				p.sendMessage("§b§lADMIN: §cDESATIVADO");
-				p.sendMessage("§b§lVIS: §7Voc\u00ea est\u00e1 vis\u00edvel para todos os jogadores!");
-				API.sendWarn("§7§o[" + p.getName() + "§7§o saiu do modo ADMIN]");
+				p.sendMessage("ï¿½bï¿½lADMIN: ï¿½cDESATIVADO");
+				p.sendMessage("ï¿½bï¿½lVIS: ï¿½7Voc\u00ea est\u00e1 vis\u00edvel para todos os jogadores!");
+				API.sendWarn("ï¿½7ï¿½o[" + p.getName() + "ï¿½7ï¿½o saiu do modo ADMIN]");
 				KitAPI.setKitAntes(p, AdminCommand.kit.get(p));
 				API.setWarp(p, AdminCommand.warp.get(p));
 				p.setGameMode(GameMode.SURVIVAL);

@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.CooldownAPI;
 import tk.maze.pvp.API.KitAPI;
 
@@ -27,7 +27,7 @@ public class Ajnin implements Listener {
 			final Player hitado = (Player) e.getEntity();
 			if (KitAPI.getKit(hitou) == "Ajnin" && !Ajnin.a.containsKey(hitou)) {
 				Ajnin.a.put(hitou, hitado);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						Ajnin.a.remove(hitou);
@@ -42,25 +42,25 @@ public class Ajnin implements Listener {
 	public void a(final PlayerToggleSneakEvent e) {
 		final Player hitou = e.getPlayer();
 		if (e.isSneaking() && KitAPI.getKit(hitou) == "Ajnin" && CooldownAPI.Cooldown.containsKey(hitou.getName())) {
-			hitou.sendMessage("§fO seu §3§lCOOLDOWN §facaba em: §c§l" + CooldownAPI.Cooldown(hitou) + "s");
+			hitou.sendMessage("ï¿½fO seu ï¿½3ï¿½lCOOLDOWN ï¿½facaba em: ï¿½cï¿½l" + CooldownAPI.Cooldown(hitou) + "s");
 			return;
 		}
 		if (e.isSneaking() && KitAPI.getKit(hitou) == "Ajnin" && Ajnin.a.containsKey(hitou)) {
 			final Player hitado = Ajnin.a.get(hitou);
 			if (hitado != null) {
 				if (Gladiator.noExecut.contains(hitado)) {
-					hitou.sendMessage("§cEste jogador est\u00e1 em um duelo nas alturas!");
+					hitou.sendMessage("ï¿½cEste jogador est\u00e1 em um duelo nas alturas!");
 					return;
 				}
 				if (Gladiator.noExecut.contains(hitou)) {
-					hitou.sendMessage("§cVoc\u00ea n\u00e3o pode utilizar o kit Ninja durante um duelo no Gladiator!");
+					hitou.sendMessage("ï¿½cVoc\u00ea n\u00e3o pode utilizar o kit Ninja durante um duelo no Gladiator!");
 					return;
 				}
 				if (hitou.getLocation().distance(hitado.getLocation()) < 40.0) {
 					hitado.teleport(hitou.getLocation());
 					CooldownAPI.addCooldown(hitou, 7);
 				} else {
-					hitou.sendMessage("§cO \u00faltimo jogador hitado est\u00e1 muito longe!");
+					hitou.sendMessage("ï¿½cO \u00faltimo jogador hitado est\u00e1 muito longe!");
 				}
 			}
 		}

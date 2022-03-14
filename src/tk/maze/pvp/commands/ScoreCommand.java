@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.scoreboard.sScoreAPI;
 
 public class ScoreCommand implements CommandExecutor {
@@ -14,26 +14,26 @@ public class ScoreCommand implements CommandExecutor {
 		final Player p = (Player) Sender;
 		if (Cmd.getName().equalsIgnoreCase("score")) {
 			if (sScoreAPI.Delay.contains(p)) {
-				p.sendMessage("§cAguarde para executar este comando novamente!");
+				p.sendMessage("ï¿½cAguarde para executar este comando novamente!");
 				return true;
 			}
 			if (sScoreAPI.Score.contains(p)) {
-				p.sendMessage("§b§lSCORE §7A sua Scoreboard foi §c§lDESATIVADA");
+				p.sendMessage("ï¿½bï¿½lSCORE ï¿½7A sua Scoreboard foi ï¿½cï¿½lDESATIVADA");
 				sScoreAPI.Score.remove(p);
 				sScoreAPI.scorenull(p);
 				sScoreAPI.Delay.add(p);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						sScoreAPI.Delay.remove(p);
 					}
 				}, 120L);
 			} else if (!sScoreAPI.Score.contains(p)) {
-				p.sendMessage("§b§lSCORE §7A sua Scoreboard foi §a§lATIVADA");
+				p.sendMessage("ï¿½bï¿½lSCORE ï¿½7A sua Scoreboard foi ï¿½aï¿½lATIVADA");
 				sScoreAPI.Score.add(p);
 				sScoreAPI.scoreboard(p);
 				sScoreAPI.Delay.add(p);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						sScoreAPI.Delay.remove(p);

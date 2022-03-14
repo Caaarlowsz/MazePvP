@@ -17,7 +17,7 @@ import net.minecraft.server.v1_7_R4.EntityHuman;
 import net.minecraft.server.v1_7_R4.EntitySnowball;
 import net.minecraft.server.v1_7_R4.Packet;
 import net.minecraft.server.v1_7_R4.PacketPlayOutEntityDestroy;
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 
 public class Cordinha extends EntityFishingHook implements Listener {
 	private Snowball sb;
@@ -28,7 +28,7 @@ public class Cordinha extends EntityFishingHook implements Listener {
 	public boolean lastControllerDead;
 	public boolean isHooked;
 
-	public void Grappler(final Main plugin) {
+	public void Grappler(final MazePvP plugin) {
 	}
 
 	public Cordinha(final World world, final EntityHuman entityhuman) {

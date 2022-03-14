@@ -7,7 +7,7 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.bossbar.ClassBuilder;
 import tk.maze.pvp.bossbar.NMSClass;
 
@@ -44,7 +44,7 @@ public class BossBar extends BukkitRunnable {
 		}
 		if (timeout > 0) {
 			this.healthMinus = this.getMaxHealth() / timeout;
-			this.runTaskTimer(Main.getPlugin(), 20L, 20L);
+			this.runTaskTimer(MazePvP.getPlugin(), 20L, 20L);
 		}
 	}
 

@@ -11,7 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.ChatInterativo;
 import tk.maze.pvp.conf.cfGrupo;
 
@@ -55,7 +55,7 @@ public class ReportCommand implements CommandExecutor {
 							ChatInterativo.Comando(s.getName(),
 									"�7Clique �b�l�nAQUI �fpara teleportar at\u00e9 o jogador.",
 									"/tp " + target.getName(), "�eClique! �8(bot\u00e3o esquerdo)");
-							Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getPlugin(),
+							Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(),
 									(Runnable) new Runnable() {
 										@Override
 										public void run() {

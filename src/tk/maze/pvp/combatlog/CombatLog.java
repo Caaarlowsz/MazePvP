@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.API;
 import tk.maze.pvp.conf.cfGrupo;
 import tk.maze.pvp.conf.cfStatus;
@@ -25,12 +25,12 @@ public class CombatLog implements Listener {
 
 	public static String getCombat(final Player p) {
 		if (CombatLog.combat.contains(p)) {
-			return "§a§lSIM";
+			return "ï¿½aï¿½lSIM";
 		}
 		if (!CombatLog.combat.contains(p)) {
-			return "§c§lNAO";
+			return "ï¿½cï¿½lNAO";
 		}
-		return "§c§lNAO";
+		return "ï¿½cï¿½lNAO";
 	}
 
 	@EventHandler
@@ -42,7 +42,7 @@ public class CombatLog implements Listener {
 				if (!CombatLog.combat.contains(p)) {
 					CombatLog.combat.add(p);
 					sScoreAPI.scoreboard(p);
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+					Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.plugin, (Runnable) new Runnable() {
 						@Override
 						public void run() {
 							CombatLog.combat.remove(p);
@@ -53,7 +53,7 @@ public class CombatLog implements Listener {
 				if (!CombatLog.combat.contains(k)) {
 					CombatLog.combat.add(k);
 					sScoreAPI.scoreboard(k);
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+					Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.plugin, (Runnable) new Runnable() {
 						@Override
 						public void run() {
 							CombatLog.combat.remove(k);

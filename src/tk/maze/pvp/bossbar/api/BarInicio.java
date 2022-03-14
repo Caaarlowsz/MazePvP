@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 
 public class BarInicio implements Listener {
 	protected static BarInicio instance;
@@ -52,7 +52,7 @@ public class BarInicio implements Listener {
 			public void run() {
 				bar.setVisible(true);
 			}
-		}.runTaskLater(Main.getPlugin(), 2L);
+		}.runTaskLater(MazePvP.getPlugin(), 2L);
 	}
 
 	@EventHandler
@@ -66,7 +66,7 @@ public class BarInicio implements Listener {
 					}
 					bar.updateMovement();
 				}
-			}.runTaskLater(Main.getPlugin(), 0L);
+			}.runTaskLater(MazePvP.getPlugin(), 0L);
 		}
 	}
 }

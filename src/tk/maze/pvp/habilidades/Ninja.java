@@ -8,14 +8,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.CooldownAPI;
 import tk.maze.pvp.API.KitAPI;
 
 public class Ninja implements Listener {
 	public static HashMap<Player, Player> a;
 	public static HashMap<Player, Long> b;
-	public static Main plugin;
+	public static MazePvP plugin;
 
 	static {
 		Ninja.a = new HashMap<Player, Player>();
@@ -40,7 +40,7 @@ public class Ninja implements Listener {
 		if (paramPlayerToggleSneakEvent.isSneaking() && KitAPI.getKit(localPlayer1) == "Ninja"
 				&& CooldownAPI.Cooldown.containsKey(localPlayer1.getName())) {
 			localPlayer1
-					.sendMessage("§fO seu §3§lCOOLDOWN §facaba em: §c§l" + CooldownAPI.Cooldown(localPlayer1) + "s");
+					.sendMessage("ï¿½fO seu ï¿½3ï¿½lCOOLDOWN ï¿½facaba em: ï¿½cï¿½l" + CooldownAPI.Cooldown(localPlayer1) + "s");
 			return;
 		}
 		if (paramPlayerToggleSneakEvent.isSneaking() && KitAPI.getKit(localPlayer1) == "Ninja"
@@ -48,12 +48,12 @@ public class Ninja implements Listener {
 			final Player localPlayer2 = Ninja.a.get(localPlayer1);
 			if (localPlayer2 != null && !localPlayer2.isDead()) {
 				if (Gladiator.noExecut.contains(localPlayer2)) {
-					localPlayer1.sendMessage("§cEste jogador est\u00e1 em um duelo nas alturas!");
+					localPlayer1.sendMessage("ï¿½cEste jogador est\u00e1 em um duelo nas alturas!");
 					return;
 				}
 				if (Gladiator.noExecut.contains(localPlayer1)) {
 					localPlayer1.sendMessage(
-							"§cVoc\u00ea n\u00e3o pode utilizar o kit Ninja durante um duelo no Gladiator!");
+							"ï¿½cVoc\u00ea n\u00e3o pode utilizar o kit Ninja durante um duelo no Gladiator!");
 					return;
 				}
 				if (Ninja.b.get(localPlayer1) != null) {
@@ -65,7 +65,7 @@ public class Ninja implements Listener {
 					CooldownAPI.addCooldown(localPlayer1, 7);
 					Ninja.b.put(localPlayer1, System.currentTimeMillis() + 10000L);
 				} else {
-					localPlayer1.sendMessage("§cO \u00faltimo jogador hitado est\u00e1 muito longe!");
+					localPlayer1.sendMessage("ï¿½cO \u00faltimo jogador hitado est\u00e1 muito longe!");
 				}
 			}
 		}

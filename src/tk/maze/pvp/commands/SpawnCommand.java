@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.API;
 import tk.maze.pvp.API.KitAPI;
 import tk.maze.pvp.API.TopKillStreak;
@@ -19,10 +19,10 @@ public class SpawnCommand implements CommandExecutor {
 	public boolean onCommand(final CommandSender Sender, final Command Cmd, final String Label, final String[] Args) {
 		final Player p = (Player) Sender;
 		if (Cmd.getName().equalsIgnoreCase("spawn")) {
-			p.sendMessage("§aVoc\u00ea est\u00e1 sendo teleportado para o spawn.");
+			p.sendMessage("ï¿½aVoc\u00ea est\u00e1 sendo teleportado para o spawn.");
 			p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 300, 300));
 			p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 300, 300));
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					TopKillStreak.Ks.put(p, 0);

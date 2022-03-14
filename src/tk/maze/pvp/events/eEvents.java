@@ -18,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffectType;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.API;
 import tk.maze.pvp.API.ArraysAPI;
 import tk.maze.pvp.API.KitAPI;
@@ -28,7 +28,7 @@ import tk.maze.pvp.bans.Config;
 import tk.maze.pvp.commands.AdminCommand;
 import tk.maze.pvp.conf.cfGrupo;
 import tk.maze.pvp.conf.cfStatus;
-import tk.maze.pvp.invencivel.Prote\u00e7\u00e3o;
+\u00e7\u00e3o;
 import tk.maze.pvp.scoreboard.sScoreAPI;
 
 public class eEvents implements Listener {
@@ -65,8 +65,8 @@ public class eEvents implements Listener {
 		ArraysAPI.Admin.remove(p);
 		API.setWarp(p, "Spawn");
 		WarpsAPI.Ir(p, "Spawn");
-		API.mandarTitulo(p, "§b§lBROWK§f§lPVP");
-		API.mandarSubTitulo(p, "§eSeja bem vindo ao §6§lKITPVP");
+		API.mandarTitulo(p, "ï¿½bï¿½lBROWKï¿½fï¿½lPVP");
+		API.mandarSubTitulo(p, "ï¿½eSeja bem vindo ao ï¿½6ï¿½lKITPVP");
 		API.checarPermissao(p);
 		API.checarGrupo(p);
 		API.corGrupo(p);
@@ -82,7 +82,7 @@ public class eEvents implements Listener {
 		p.setHealth(20.0);
 		p.setMaxHealth(20.0);
 		sScoreAPI.scoreboard(p);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				API.sendItems(p);
@@ -114,13 +114,13 @@ public class eEvents implements Listener {
 		final Player d = e.getEntity().getKiller();
 		WarpsAPI.Ir(p, "Spawn");
 		API.setWarp(p, "Spawn");
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				p.spigot().respawn();
 			}
 		}, 1L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				API.sendItems(p);
@@ -131,8 +131,8 @@ public class eEvents implements Listener {
 			API.setWarp(p, "Spawn");
 			KitAPI.removeKits(p);
 			if (d != null) {
-				p.sendMessage("§b§lMORREU: §7Voc\u00ea morreu para: §c§l" + d.getName());
-				d.sendMessage("§b§lMATOU: §7Voc\u00ea matou o : §a§l" + p.getName());
+				p.sendMessage("ï¿½bï¿½lMORREU: ï¿½7Voc\u00ea morreu para: ï¿½cï¿½l" + d.getName());
+				d.sendMessage("ï¿½bï¿½lMATOU: ï¿½7Voc\u00ea matou o : ï¿½aï¿½l" + p.getName());
 				final ItemStack Peito = new ItemStack(Material.IRON_CHESTPLATE);
 				final ItemMeta kPeito = Peito.getItemMeta();
 				Peito.setItemMeta(kPeito);
@@ -164,65 +164,65 @@ public class eEvents implements Listener {
 				e.setDeathMessage((String) null);
 				e.getDrops().clear();
 				if (TopKillStreak.getKsTop(p) == 5) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l5");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l5");
 				}
 				if (TopKillStreak.getKsTop(p) == 10) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l10");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l10");
 				}
 				if (TopKillStreak.getKsTop(p) == 15) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l15");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l15");
 				}
 				if (TopKillStreak.getKsTop(p) == 20) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l20");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l20");
 				}
 				if (TopKillStreak.getKsTop(p) == 25) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l25");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l25");
 				}
 				if (TopKillStreak.getKsTop(p) == 30) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l30");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l30");
 				}
 				if (TopKillStreak.getKsTop(p) == 35) {
-					Bukkit.broadcastMessage("§e§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l35");
+					Bukkit.broadcastMessage("ï¿½eï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l35");
 				}
 				if (TopKillStreak.getKsTop(p) == 40) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l40");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l40");
 				}
 				if (TopKillStreak.getKsTop(p) == 45) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l45");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l45");
 				}
 				if (TopKillStreak.getKsTop(p) == 50) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l50");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l50");
 				}
 				if (TopKillStreak.getKsTop(p) == 55) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l55");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l55");
 				}
 				if (TopKillStreak.getKsTop(p) == 60) {
-					Bukkit.broadcastMessage("§e§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l60");
+					Bukkit.broadcastMessage("ï¿½eï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l60");
 				}
 				if (TopKillStreak.getKsTop(p) == 65) {
-					Bukkit.broadcastMessage("§e§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l65");
+					Bukkit.broadcastMessage("ï¿½eï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l65");
 				}
 				if (TopKillStreak.getKsTop(p) == 70) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l70");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l70");
 				}
 				if (TopKillStreak.getKsTop(p) == 75) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l75");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l75");
 				}
 				if (TopKillStreak.getKsTop(p) == 80) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l80");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l80");
 				}
 				if (TopKillStreak.getKsTop(p) == 85) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l85");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l85");
 				}
 				if (TopKillStreak.getKsTop(p) == 90) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l90");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l90");
 				}
 				if (TopKillStreak.getKsTop(p) == 95) {
-					Bukkit.broadcastMessage("§b§l" + d.getName() + " §7est\u00e1 com um killstreak de §a§l95");
+					Bukkit.broadcastMessage("ï¿½bï¿½l" + d.getName() + " ï¿½7est\u00e1 com um killstreak de ï¿½aï¿½l95");
 				}
 				if (TopKillStreak.getKsTop(p) == 100) {
 					Bukkit.broadcastMessage(
-							"§b§l" + d.getName() + " §6alcan\u00e7ou o §6§lKILLSTREAK §fm\u00e1ximo de §a§l100§f!");
+							"ï¿½bï¿½l" + d.getName() + " ï¿½6alcan\u00e7ou o ï¿½6ï¿½lKILLSTREAK ï¿½fm\u00e1ximo de ï¿½aï¿½l100ï¿½f!");
 				} else {
 					e.setDeathMessage((String) null);
 					e.getDrops().clear();
@@ -255,7 +255,7 @@ public class eEvents implements Listener {
 		final HelpTopic t = Bukkit.getServer().getHelpMap().getHelpTopic(msg);
 		if (t == null) {
 			e.setCancelled(true);
-			p.sendMessage("§7Este comando nao existe!");
+			p.sendMessage("ï¿½7Este comando nao existe!");
 		}
 	}
 

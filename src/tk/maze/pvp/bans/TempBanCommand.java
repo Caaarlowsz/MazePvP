@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import tk.maze.pvp.Main;
+import com.github.caaarlowsz.mazemc.kitpvp.MazePvP;
 import tk.maze.pvp.API.HorarioAPI;
 import tk.maze.pvp.conf.cfGrupo;
 
@@ -122,7 +122,7 @@ public class TempBanCommand implements CommandExecutor {
 			Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 					(Object) HorarioAPI.getHorario());
 			Config.getConfig().saveTempBans();
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) != null) {
@@ -156,7 +156,7 @@ public class TempBanCommand implements CommandExecutor {
 			Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 					(Object) HorarioAPI.getHorario());
 			Config.getConfig().saveTempBans();
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) != null) {
@@ -188,7 +188,7 @@ public class TempBanCommand implements CommandExecutor {
 			Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 					(Object) HorarioAPI.getHorario());
 			Config.getConfig().saveTempBans();
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) != null) {
@@ -222,7 +222,7 @@ public class TempBanCommand implements CommandExecutor {
 			Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 					(Object) HorarioAPI.getHorario());
 			Config.getConfig().saveTempBans();
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) != null) {
@@ -256,7 +256,7 @@ public class TempBanCommand implements CommandExecutor {
 			Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 					(Object) HorarioAPI.getHorario());
 			Config.getConfig().saveTempBans();
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) != null) {
@@ -350,7 +350,7 @@ public class TempBanCommand implements CommandExecutor {
 			Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 					(Object) HorarioAPI.getHorario());
 			Config.getConfig().saveTempBans();
-			Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) == null
@@ -399,7 +399,7 @@ public class TempBanCommand implements CommandExecutor {
 				Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 						(Object) HorarioAPI.getHorario());
 				Config.getConfig().saveTempBans();
-				Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) != null) {
@@ -433,7 +433,7 @@ public class TempBanCommand implements CommandExecutor {
 				Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 						(Object) HorarioAPI.getHorario());
 				Config.getConfig().saveTempBans();
-				Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) != null) {
@@ -468,7 +468,7 @@ public class TempBanCommand implements CommandExecutor {
 				Config.getConfig().getTempBans().set("TempBans." + vitima.getUniqueId() + ".Data do banimento",
 						(Object) HorarioAPI.getHorario());
 				Config.getConfig().saveTempBans();
-				Bukkit.getScheduler().scheduleAsyncDelayedTask(Main.getPlugin(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleAsyncDelayedTask(MazePvP.getPlugin(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (Config.getConfig().getTempBans().get("TempBans." + vitima.getUniqueId()) != null) {
