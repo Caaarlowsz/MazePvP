@@ -3,6 +3,8 @@ package com.github.caaarlowsz.mazemc.kitpvp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.github.caaarlowsz.kitpvpapi.KitPvP;
+import com.github.caaarlowsz.kitpvpapi.KitPvPAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandExecutor;
@@ -143,7 +145,28 @@ import tk.maze.pvp.umVum.CmdsSpeed;
 import tk.maze.pvp.umVum.Events1v1;
 import tk.maze.pvp.umVum.Speed1v1;
 
-public class MazePvP extends JavaPlugin {
+public class MazePvP extends JavaPlugin implements KitPvP {
+
+	@Override
+	public void onEnable() {
+		super.onEnable();
+		KitPvPAPI.setInstance(this);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.enable();
+	}
+
+	@Override
+	public void onDisable() {
+		super.onDisable();
+		KitPvPAPI.setInstance(null);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.disable();
+	}
+
+	// TODO: Melhorar a classe principal
+
 	public static final String Menssagens;
 	public static ArrayList<String> logado1;
 	public static MazePvP main;
@@ -174,7 +197,7 @@ public class MazePvP extends JavaPlugin {
 		return MazePvP.plugin;
 	}
 
-	public void onEnable() {
+	public void enable() {
 		MazePvP.plugin = (Plugin) this;
 		Bukkit.getConsoleSender().sendMessage("�9�lPLUGIN �fO plugin �b�lBROWK�f�lPVP �ffoi �a�lATIVADO!");
 		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask((Plugin) this, (Runnable) new MoveCheck(), 41L,
@@ -215,7 +238,7 @@ public class MazePvP extends JavaPlugin {
 		}
 	}
 
-	public void onDisable() {
+	public void disable() {
 		PacketsDesabilitar();
 		for (final Item itemsDropados : Bukkit.getWorlds().get(0).getEntitiesByClass(Item.class)) {
 			itemsDropados.remove();
